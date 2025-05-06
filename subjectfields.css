@@ -1,0 +1,33 @@
+#subjectFields {
+  max-height: 300px;
+  width: 100%;
+  overflow: auto; 
+  padding-right: 25px;
+  box-sizing: content-box;
+  scrollbar-width: thin; 
+  scrollbar-color: transparent transparent; 
+}
+
+#subjectFields::-webkit-scrollbar {
+  width: 8px; 
+}
+
+#subjectFields::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  border-radius: 4px;
+}
+
+#subjectFields::-webkit-scrollbar-track {
+  background: #f4f4f9;
+  border-radius: 4px;
+}
+
+
+#subjectFields::-webkit-scrollbar {
+  opacity: 0; 
+}
+
+#subjectFields {
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}

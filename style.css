@@ -1,0 +1,395 @@
+/* Import font từ Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+/* Reset và cơ bản */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Font và kiểu chữ */
+body {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(45deg, #d2001a, #7462ff, #f48e21, #23d5ab);
+  background-size: 300% 300%;
+  animation: backgroundAnimation 12s ease-in-out infinite;
+  transition: background 0.3s ease-in-out;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  color: #000;
+  font-family: "Inter", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+/* Keyframes */
+@keyframes color {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+/* Styles for Container */
+.container {
+  max-width: 100%;
+  width: 500px;
+  margin: 40px auto;
+  padding: 40px;
+  background: #fffff;
+  border-radius: 10px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  text-align: left;
+}
+.container:hover {
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+/* Dark Mode Container */
+.dark-mode .container {
+  background-color: #444444;
+  color: #f0f4f7;
+}
+
+/* Responsive Container */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+.input-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+#result {
+  background-color: #fffff;
+  color: black;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 25px;
+  text-align: center;
+  margin-top: 35px;
+}
+
+/* Các ô nhập liệu */
+.input-field {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: 2px solid #cccccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: none;
+  outline: none;
+}
+
+.input-field:hover {
+  box-shadow: none;
+}
+
+#subjectFields {
+  max-height: 300px;
+  width: 100%;
+  overflow: auto; /* Giữ khả năng cuộn */
+  padding-right: 25px;
+  box-sizing: content-box;
+  scrollbar-width: thin; /* Cho phép scrollbar mỏng */
+  scrollbar-color: transparent transparent; /* Ẩn thanh scrollbar */
+}
+
+#subjectFields::-webkit-scrollbar {
+  width: 8px; /* Đặt độ rộng thanh scrollbar */
+}
+
+#subjectFields::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  border-radius: 4px;
+}
+
+#subjectFields::-webkit-scrollbar-track {
+  background: #f4f4f9;
+  border-radius: 4px;
+}
+
+/* Ẩn thanh scrollbar nhưng vẫn có thể cuộn */
+#subjectFields::-webkit-scrollbar {
+  opacity: 0; /* Đặt độ mờ của thanh scrollbar */
+}
+
+#subjectFields {
+  -ms-overflow-style: none; /* Ẩn thanh scrollbar trên IE và Edge */
+  scrollbar-width: none; /* Ẩn thanh scrollbar trên Firefox */
+}
+
+/* Styles for Buttons */
+button {
+  padding: 14px 24px;
+  font-size: 16px;
+  background: linear-gradient(45deg, #f1c40f, #f39c12); /* Màu vàng */
+  color: black;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Đổ bóng cho nút */
+}
+
+button:hover {
+  background: linear-gradient(
+    45deg,
+    #f39c12,
+    #f1c40f
+  ); /* Đảo ngược gradient khi hover */
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Đổ bóng mạnh hơn khi hover */
+}
+
+button:active {
+  background: linear-gradient(45deg, #f1c40f, #f39c12);
+  transform: translateY(2px);
+}
+
+button i {
+  margin-right: 8px;
+}
+
+/* Responsive Button */
+@media (max-width: 768px) {
+  button {
+    width: 100%;
+  }
+}
+
+/* Button Row */
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.button-row button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #fffff;
+  color: #fffff;
+  transition: background-color 0.2s, transform 0.2s;
+  width: 48%;
+}
+
+.button-row button:hover {
+  background-color: #fffff;
+  transform: translateY(-2px);
+}
+
+.button-row button:active {
+  background-color: #fffff;
+  transform: translateY(1px);
+}
+
+/* Gradient Button */
+.gradient-background button {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.gradient-background button:hover {
+  background: linear-gradient(135deg, #feb47b, #ff7e5f);
+}
+
+/* Button with Border */
+input[type="submit"],
+.button-border {
+  padding: 12px 20px;
+  border: 2px solid #fffff;
+  background-color: transparent;
+  color: #fffff;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+input[type="submit"]:hover,
+.button-border:hover {
+  background-color: #fffff;
+  color: white;
+  transform: translateY(-2px);
+}
+
+input[type="submit"]:active,
+.button-border:active {
+  transform: translateY(1px);
+}
+
+/* Dark Mode Buttons */
+.dark-mode .button-row button {
+  background-color: #0056b3;
+}
+
+.dark-mode .button-row button:hover {
+  background-color: #003f7f;
+}
+
+.dark-mode .button-row button:active {
+  background-color: #003166;
+}
+
+/* Ảnh và shadow box */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 8px;
+}
+
+.shadow-box {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Menu */
+.menu {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 10px;
+  background-color: #fffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  z-index: 1;
+  padding: 10px 0;
+}
+
+.menu.show {
+  display: block;
+}
+.menu a {
+  padding: 12px 20px;
+  display: block;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #333333;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.menu a:hover {
+  background-color: #f0f4f7;
+}
+
+.menu-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #fffff;
+}
+
+/* Dark mode */
+.dark-mode {
+  background-color: #333333;
+  color: #f0f4f7;
+}
+
+.dark-mode h1,
+.dark-mode h2 {
+  color: #f4f4f9;
+}
+
+.dark-mode .input-field {
+  background-color: #555555;
+  border-color: #666666;
+  color: #f0f4f7;
+}
+
+.dark-mode #result {
+  color: #f4f4f9;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 20px;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
+}
+/* Xóa spinner trên Chrome, Edge và các trình duyệt Webkit khác */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none; /* Ẩn spinner */
+  margin: 0; /* Loại bỏ khoảng cách mặc định */
+}
+
+/* Xóa spinner trên Firefox */
+input[type="number"] {
+  -moz-appearance: textfield; /* Đổi kiểu thành text để ẩn spinner */
+}

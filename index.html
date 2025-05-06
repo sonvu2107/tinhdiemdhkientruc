@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tính điểm kết thúc môn</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="layout.css" />
+    <link rel="stylesheet" href="components.css" />
+    <link rel="stylesheet" href="theme.css" />
+    <link rel="stylesheet" href="menu.css" />
+    <link rel="stylesheet" href="buttons.css" />
+    <link rel="stylesheet" href="subjectfields.css" />
+  </head>
+  <body>
+    <div class="container" id="mainForm">
+      <h1>TÍNH ĐIỂM KẾT THÚC MÔN</h1>
+      <div class="menu-icon" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="menu" id="menu">
+        <a href="https://tinchi.hau.edu.vn/TrangChu/Home"
+          ><i class="fas fa-home"></i> Web trường</a
+        >
+        <a href="#" onclick="toggleDarkMode()"
+          ><i class="fas fa-moon"></i> Chuyển đổi chế độ tối</a
+        >
+        <a href="#" onclick="showGPAForm()"
+          ><i class="fas fa-calculator"></i> Tính GPA</a
+        >
+        <a href="https://www.facebook.com/sown.vux21"
+          ><i class="fas fa-envelope"></i> Liên hệ</a
+        >
+        <a href="https://lichhoc123.glitch.me/"
+          ><i class="fas fa-calendar"></i> Lịch học</a
+        >
+      </div>
+      <div class="input-row">
+        <label for="diemquatrinh">Nhập điểm quá trình:</label>
+        <input
+          type="number"
+          id="diemquatrinh"
+          class="input-field"
+          placeholder="Nhập điểm từ 0 đến 10"
+          step="0.1"
+          onkeydown="navigateFields(event, 'diemthi', 'calculateButton', '', 'diemthi')"
+        />
+      </div>
+      <div class="input-row">
+        <label for="diemthi">Nhập điểm thi:</label>
+        <input
+          type="number"
+          id="diemthi"
+          class="input-field"
+          placeholder="Nhập điểm từ 0 đến 10"
+          step="0.1"
+          onkeydown="navigateFields(event, 'k', 'diemquatrinh', 'diemquatrinh', 'k')"
+        />
+      </div>
+      <div class="input-row">
+        <label for="k">Nhập hệ số môn (0.2/0.3/0.4):</label>
+        <input
+          type="number"
+          id="k"
+          class="input-field"
+          placeholder="(0.2, 0.3, 0.4)"
+          step="0.1"
+          onkeydown="navigateFields(event, 'calculateButton', 'diemthi', 'diemthi', 'calculateButton')"
+        />
+      </div>
+      <div class="button-row">
+        <button id="calculateButton" onclick="calculateGrade()">
+          Tính điểm
+        </button>
+        <button id="resetButton" onclick="resetFields()">Reset</button>
+      </div>
+      <h2 id="result">Kết quả sẽ hiện tại đây.</h2>
+    </div>
+
+    <div class="container" id="gpaForm" style="display: none">
+      <h1>TÍNH GPA</h1>
+      <div class="input-row">
+        <label for="numSubjects">Nhập số lượng môn:</label>
+        <input
+          type="number"
+          id="numSubjects"
+          class="input-field"
+          placeholder="Nhập số lượng môn"
+          step="1"
+          min="1"
+        />
+      </div>
+      <div class="button-row">
+        <button onclick="generateSubjectFields()">Tạo ô nhập điểm</button>
+        <button onclick="goBack()">Quay lại</button>
+      </div>
+      <div id="subjectFields"></div>
+      <div class="button-row" id="calculateButtonRow" style="display: none">
+        <button onclick="calculateGPA()">Tính GPA</button>
+        <button onclick="resetGPAFields()">Reset</button>
+      </div>
+      <h2 id="gpaResult">Kết quả GPA sẽ hiện tại đây.</h2>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

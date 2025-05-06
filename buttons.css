@@ -1,0 +1,95 @@
+button {
+  padding: 14px 24px;
+  font-size: 16px;
+  background: linear-gradient(45deg, #ffb347, #fcdca9);
+  color: #222;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+  box-shadow: none;
+}
+
+button {
+  padding: 14px 24px;
+  font-size: 16px;
+  background: linear-gradient(45deg, #f1c40f, #f39c12);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #fcdca9, #ffb347);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button i {
+  margin-right: 8px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.button-row button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #fffff;
+  color: #fffff;
+  transition: background-color 0.2s, transform 0.2s;
+  width: 48%;
+}
+
+.button-row button:hover {
+  background-color: #fffff;
+  transform: translateY(-2px);
+}
+
+.button-row button:active {
+  background-color: #fffff;
+  transform: translateY(1px);
+}
+
+.gradient-background button {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.gradient-background button:hover {
+  background: linear-gradient(135deg, #feb47b, #ff7e5f);
+}
+
+input[type="submit"],
+.button-border {
+  padding: 12px 20px;
+  border: 2px solid #fffff;
+  background-color: transparent;
+  color: #fffff;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+input[type="submit"]:hover,
+.button-border:hover {
+  background-color: #fffff;
+  color: white;
+  transform: translateY(-2px);
+}
+
+input[type="submit"]:active,
+.button-border:active {
+  transform: translateY(1px);
+}

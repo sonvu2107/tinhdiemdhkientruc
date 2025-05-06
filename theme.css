@@ -1,0 +1,31 @@
+.dark-mode {
+  background-color: #333;
+  color: #f0f4f7;
+}
+
+.dark-mode .input-field {
+  background-color: #555;
+  border-color: #666;
+  color: #f0f4f7;
+}
+
+.dark-mode .container {
+  background-color: #444;
+}
+
+.dark-mode h1,
+.dark-mode h2 {
+  color: #f4f4f9;
+}
+
+.dark-mode .button-row button {
+  background-color: #0056b3;
+}
+
+.dark-mode .button-row button:hover {
+  background-color: #003f7f;
+}
+
+.dark-mode .button-row button:active {
+  background-color: #003166;
+}
