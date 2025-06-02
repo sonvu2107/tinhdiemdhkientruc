@@ -1,0 +1,71 @@
+.predict-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.predict-section {
+  flex: 1;
+  min-width: 0;
+}
+
+.predict-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #000;
+  margin-bottom: 15px;
+}
+
+.predict-label-group {
+  margin-bottom: 8px;
+}
+
+.predict-fields-margin-top {
+  margin-top: 20px;
+}
+
+.predict-button-row {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.predict-button-row button {
+  flex: 1 1 120px;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .predict-container {
+    flex-direction: column;
+  }
+}
+
+.predict-section h3 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.predict-subject-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.predict-subject-row label {
+
+  min-width: 110px;
+}
+
+.predict-subject-row input.input-field {
+
+  max-width: 90px;
+}
+
+.predict-table .input-field {}
