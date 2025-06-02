@@ -16,9 +16,13 @@ h2 {
 
 label {
   font-weight: 500;
-  margin-bottom: 5px;
-  margin-top: 12px;
+  margin-bottom: 16px;  
+  margin-top: 14px;
+  display: block;
+  font-size: 16px;
+  color: #000;
 }
+
 
 .input-row {
   display: flex;
@@ -42,3 +46,246 @@ label {
   margin-top: 35px;
 }
 
+#predictGPAResult {
+  font-size: 25px;
+  text-align: center;
+  margin-top: 35px;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+  margin-left: 5px;
+  cursor: help;
+}
+
+.tooltip .tooltip-icon {
+  color: #666;
+  font-size: 16px;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 250px;
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: 125%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  line-height: 1.4;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.tooltip .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #333;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.container {
+  animation: fadeIn 0.5s ease-out;
+}
+
+#gpaForm {
+  animation: slideIn 0.5s ease-out;
+}
+
+.input-row {
+  animation: fadeIn 0.3s ease-out;
+  animation-fill-mode: both;
+}
+
+.input-row:nth-child(1) { animation-delay: 0.1s; }
+.input-row:nth-child(2) { animation-delay: 0.2s; }
+.input-row:nth-child(3) { animation-delay: 0.3s; }
+
+.input-row > div[style*='flex'] {
+  margin-bottom: 6px;
+}
+
+.input-row > div[style*='flex'] .tooltip {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.tooltip .tooltip-icon {
+  color: #666;
+  font-size: 18px;
+  vertical-align: middle;
+  line-height: 1;
+  margin-right: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.input-row label {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+}
+
+.predict-table {
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+  margin: 18px 0 18px 0;
+  padding: 12px 10px 8px 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  max-height: 320px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.predict-table::-webkit-scrollbar {
+  display: none;
+}
+
+.predict-table-title {
+  font-weight: 600;
+  font-size: 17px;
+  margin-bottom: 10px;
+  color: #222;
+  letter-spacing: 0.5px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.button-row button {
+  flex: 1 1 120px;
+  max-width: 100%;
+}
+
+@media (max-width: 600px) {
+  .button-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .button-row button {
+    width: 100%;
+  }
+}
+
+#gpaForm .input-row label {
+  margin-bottom: 6px;
+  margin-top: 14px;
+  display: block;
+}
+
+#gpaForm .input-row label[for^='tinchi'] {
+  margin-bottom: 8px;
+}
+
+#mainForm .input-row > div[style*='flex'],
+#predictGPAForm .input-row > div:nth-of-type(1) {
+  margin-bottom: 6px;
+}
+
+#predictGPAForm .input-row > div:nth-of-type(2) {
+    margin-bottom: 8px;
+}
+
+#predictGPAForm .input-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+#predictGPAForm .input-row label {
+  font-weight: 500;
+  margin-bottom: 6px;
+  margin-top: 14px;
+  display: block;
+  font-size: 16px;
+  color: #000;
+}
+
+#predictGPAForm .input-field {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+#predictGPAForm .predict-label-group {
+  margin-bottom: 6px;
+}
+
+#predictGPAForm .predict-label-group label {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+#predictGPAForm .predict-label-group .tooltip {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-left: 5px;
+}
+
+#predictGPAForm .predict-label-group .tooltip .tooltip-icon {
+  color: #666;
+  font-size: 18px;
+  vertical-align: middle;
+  line-height: 1;
+  margin-right: 2px;
+  display: flex;
+  align-items: center;
+}
+
+#predictGPAForm .input-row label[for^='predictTinchi'] {
+    margin-bottom: 8px;
+}
