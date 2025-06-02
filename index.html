@@ -15,32 +15,42 @@
     <link rel="stylesheet" href="menu.css" />
     <link rel="stylesheet" href="buttons.css" />
     <link rel="stylesheet" href="subjectfields.css" />
+    <link rel="stylesheet" href="predictgpa.css" />
   </head>
   <body>
+    <div class="menu-icon" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="menu" id="menu">
+      <a href="https://tinchi.hau.edu.vn/TrangChu/Home"
+        ><i class="fas fa-home"></i> Web trường</a
+      >
+      <a href="#" onclick="toggleDarkMode()"
+        ><i class="fas fa-moon"></i> Chuyển đổi chế độ tối</a
+      >
+      <a href="#" onclick="showGPAForm()"
+        ><i class="fas fa-calculator"></i> Tính GPA</a
+      >
+      <a href="https://www.facebook.com/sown.vux21"
+        ><i class="fas fa-envelope"></i> Liên hệ</a
+      >
+      <a href="https://lichhoc123.glitch.me/"
+        ><i class="fas fa-calendar"></i> Lịch học</a
+      >
+      <a href="#" onclick="showPredictGPAForm()">
+        <i class="fas fa-bullseye"></i> Dự đoán GPA
+      </a>
+    </div>
     <div class="container" id="mainForm">
       <h1>TÍNH ĐIỂM KẾT THÚC MÔN</h1>
-      <div class="menu-icon" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
-      </div>
-      <div class="menu" id="menu">
-        <a href="https://tinchi.hau.edu.vn/TrangChu/Home"
-          ><i class="fas fa-home"></i> Web trường</a
-        >
-        <a href="#" onclick="toggleDarkMode()"
-          ><i class="fas fa-moon"></i> Chuyển đổi chế độ tối</a
-        >
-        <a href="#" onclick="showGPAForm()"
-          ><i class="fas fa-calculator"></i> Tính GPA</a
-        >
-        <a href="https://www.facebook.com/sown.vux21"
-          ><i class="fas fa-envelope"></i> Liên hệ</a
-        >
-        <a href="https://lichhoc123.glitch.me/"
-          ><i class="fas fa-calendar"></i> Lịch học</a
-        >
-      </div>
       <div class="input-row">
-        <label for="diemquatrinh">Nhập điểm quá trình:</label>
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <div class="tooltip">
+            <i class="fas fa-info-circle tooltip-icon"></i>
+            <span class="tooltip-text">Điểm quá trình bao gồm điểm chuyên cần, điểm kiểm tra giữa kỳ, bài tập, thảo luận... Điểm từ 0 đến 10.</span>
+          </div>
+          <label for="diemquatrinh">Nhập điểm quá trình:</label>
+        </div>
         <input
           type="number"
           id="diemquatrinh"
@@ -51,7 +61,13 @@
         />
       </div>
       <div class="input-row">
-        <label for="diemthi">Nhập điểm thi:</label>
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <div class="tooltip">
+            <i class="fas fa-info-circle tooltip-icon"></i>
+            <span class="tooltip-text">Điểm thi cuối kỳ của môn học. Điểm từ 0 đến 10.</span>
+          </div>
+          <label for="diemthi">Nhập điểm thi:</label>
+        </div>
         <input
           type="number"
           id="diemthi"
@@ -62,7 +78,13 @@
         />
       </div>
       <div class="input-row">
-        <label for="k">Nhập hệ số môn (0.2/0.3/0.4):</label>
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <div class="tooltip">
+            <i class="fas fa-info-circle tooltip-icon"></i>
+            <span class="tooltip-text">Hệ số của điểm quá trình. Thường là 0.2, 0.3 hoặc 0.4. Ví dụ: Nếu hệ số là 0.3, điểm quá trình sẽ chiếm 30% và điểm thi chiếm 70% trong điểm cuối cùng.</span>
+          </div>
+          <label for="k">Nhập hệ số môn:</label>
+        </div>
         <input
           type="number"
           id="k"
@@ -84,7 +106,13 @@
     <div class="container" id="gpaForm" style="display: none">
       <h1>TÍNH GPA</h1>
       <div class="input-row">
-        <label for="numSubjects">Nhập số lượng môn:</label>
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <div class="tooltip">
+            <i class="fas fa-info-circle tooltip-icon"></i>
+            <span class="tooltip-text">Nhập tổng số môn học cần tính GPA. Sau khi nhập, hệ thống sẽ tạo các ô nhập điểm và số tín chỉ tương ứng.</span>
+          </div>
+          <label for="numSubjects">Nhập số lượng môn:</label>
+        </div>
         <input
           type="number"
           id="numSubjects"
@@ -105,6 +133,76 @@
       </div>
       <h2 id="gpaResult">Kết quả GPA sẽ hiện tại đây.</h2>
     </div>
+
+    <div class="container" id="predictGPAForm" style="display: none;">
+      <h2>Dự đoán GPA mục tiêu</h2>
+      <div class="input-row">
+        <label for="targetGPA">Nhập GPA mục tiêu:</label>
+        <input type="number" id="targetGPA" class="predict-input" placeholder="Nhập GPA mục tiêu từ 0 đến 4" step="0.01" min="0" max="4">
+      </div>
+      <div class="input-row">
+        <label for="numSubjectsDone">Số môn đã học:</label>
+        <input type="number" id="numSubjectsDone" class="predict-input" placeholder="Nhập số môn đã học" min="0" onchange="generatePredictFields()">
+      </div>
+      <div class="input-row">
+        <label for="numSubjectsLeft">Số môn còn lại:</label>
+        <input type="number" id="numSubjectsLeft" class="predict-input" placeholder="Nhập số môn còn lại" min="1" onchange="generatePredictFields()">
+      </div>
+
+      <div class="predict-container">
+        <div class="predict-section">
+          <h3>Môn đã học</h3>
+          <div id="subjectsDoneFields"></div>
+        </div>
+        <div class="predict-section">
+          <h3>Môn còn lại</h3>
+          <div id="subjectsLeftFields"></div>
+        </div>
+      </div>
+
+      <div id="predictButtonRow" class="button-row">
+        <button onclick="calculatePredictGPA()">Tính toán</button>
+        <button onclick="resetPredictGPAFields()">Reset</button>
+        <button onclick="goBackFromPredict()">Quay lại</button>
+      </div>
+      <div id="predictGPAResult" class="result"></div>
+    </div>
     <script src="script.js"></script>
+
+    <template id="subject-done-template">
+      <div class="input-row">
+        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+          <div class="tooltip">
+            <i class="fas fa-info-circle tooltip-icon"></i>
+            <span class="tooltip-text"></span>
+          </div>
+          <label></label>
+        </div>
+        <input type="number" class="input-field" placeholder="" step="0.01" min="0" max="4" />
+
+        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 8px; margin-top: 14px;">
+          <div class="tooltip">
+            <i class="fas fa-info-circle tooltip-icon"></i>
+            <span class="tooltip-text"></span>
+          </div>
+          <label></label>
+        </div>
+        <input type="number" class="input-field" placeholder="" step="1" min="1" />
+      </div>
+    </template>
+
+    <template id="subject-left-template">
+      <div class="input-row">
+        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
+          <div class="tooltip">
+            <i class="fas fa-info-circle tooltip-icon"></i>
+            <span class="tooltip-text"></span>
+          </div>
+          <label></label>
+        </div>
+        <input type="number" class="input-field" placeholder="" step="1" min="1" />
+      </div>
+    </template>
+
   </body>
 </html>
