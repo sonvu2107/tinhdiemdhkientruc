@@ -207,92 +207,45 @@ label {
 
 @media (max-width: 600px) {
   .button-row {
+    flex-direction: row; 
     gap: 10px;
+    flex-wrap: wrap; 
+    justify-content: center; 
   }
-  .button-row button { 
+
+  .button-row button {
+    flex: 0 0 auto; 
+    max-width: 120px; 
+    width: auto; 
+    padding: 10px; 
+    font-size: 14px; 
+  }
+
+  #gpaForm .input-row label {
+    margin-bottom: 4px;
+    margin-top: 10px;
+  }
+
+  #predictGPAForm .input-row label {
+    margin-bottom: 4px;
+    margin-top: 10px;
+  }
+
+  .tooltip .tooltip-text {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    top: -10px;
+  }
+
+  .tooltip .tooltip-text::after {
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-color: #333 transparent transparent transparent;
   }
 }
 
-#gpaForm .input-row label {
-  margin-bottom: 6px;
-  margin-top: 14px;
-  display: block;
-}
-
-#gpaForm .input-row label[for^='tinchi'] {
-  margin-bottom: 8px;
-}
-
-#mainForm .input-row > div[style*='flex'] {
-  margin-bottom: 6px;
-}
-
-#predictGPAForm .input-row > div:nth-of-type(1) {
-    margin-bottom: 6px;
-}
-
-#predictGPAForm .input-row > div:nth-of-type(2) {
-    margin-bottom: 8px;
-}
-
-#predictGPAForm .input-row {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-}
-
-#predictGPAForm .input-row label {
-  font-weight: 500;
-  margin-bottom: 6px;
-  margin-top: 14px;
-  display: block;
-  font-size: 16px;
-  color: #000;
-}
-
-#predictGPAForm .input-field {
-  width: 100%;
-  padding: 14px;
-  font-size: 16px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-}
-
-#predictGPAForm .predict-label-group {
-  margin-bottom: 6px;
-}
-
-#predictGPAForm .predict-label-group label {
-  margin: 0;
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-
-#predictGPAForm .predict-label-group .tooltip {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  margin-left: 5px;
-}
-
-#predictGPAForm .predict-label-group .tooltip .tooltip-icon {
-  color: #666;
-  font-size: 18px;
-  vertical-align: middle;
-  line-height: 1;
-  margin-right: 2px;
-  display: flex;
-  align-items: center;
-}
-
-#predictGPAForm .input-row label[for^='predictTinchi'] {
-    margin-bottom: 8px;
-}
-
-/* Mobile Responsive Styles */
 @media (max-width: 768px) {
   h1 {
     font-size: 24px;
@@ -348,26 +301,34 @@ label {
   .button-row {
     gap: 10px;
     margin-top: 20px;
+    flex-wrap: wrap; 
+    justify-content: center; 
   }
 
   .button-row button {
-    padding: 10px;
-    font-size: 14px;
+    max-width: 120px; 
+    flex: 1 1 100px; 
+    padding: 10px; 
+    font-size: 14px; 
   }
 
-  /* Adjust spacing for GPA form on mobile */
   #gpaForm .input-row label {
     margin-bottom: 4px;
     margin-top: 10px;
   }
 
-  /* Adjust spacing for predict GPA form on mobile */
-  #predictGPAForm .input-row label {
-    margin-bottom: 4px;
-    margin-top: 10px;
+  #gpaForm .input-row label[for^='tinchi'] {
+    margin-bottom: 6px;
   }
 
-  /* Adjust tooltip position for better mobile view */
+  #predictGPAForm .input-row > div:nth-of-type(1) {
+      margin-bottom: 4px; 
+  }
+
+  #predictGPAForm .input-row > div:nth-of-type(2) {
+      margin-bottom: 6px; 
+  }
+
   .tooltip .tooltip-text {
     right: auto;
     left: 50%;
@@ -383,7 +344,6 @@ label {
   }
 }
 
-/* Small Mobile Devices */
 @media (max-width: 480px) {
   h1 {
     font-size: 22px;
@@ -411,10 +371,11 @@ label {
   }
 
   .button-row {
-    flex-direction: column;
+    flex-direction: column; 
   }
 
   .button-row button {
-    width: 100%;
+    width: 100%; 
+    max-width: none; 
   }
 }
