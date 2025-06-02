@@ -51,6 +51,7 @@ label {
   text-align: center;
   margin-top: 35px;
 }
+/* Tooltip styles */
 .tooltip {
   position: relative;
   display: inline-block;
@@ -99,6 +100,7 @@ label {
   opacity: 1;
 }
 
+/* Animation styles */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -160,7 +162,6 @@ label {
   display: flex;
   align-items: center;
   height: 100%;
-  margin: 0;
 }
 
 .predict-table {
@@ -206,11 +207,9 @@ label {
 
 @media (max-width: 600px) {
   .button-row {
-    flex-direction: column;
     gap: 10px;
   }
-  .button-row button {
-    width: 100%;
+  .button-row button { 
   }
 }
 
@@ -224,9 +223,12 @@ label {
   margin-bottom: 8px;
 }
 
-#mainForm .input-row > div[style*='flex'],
-#predictGPAForm .input-row > div:nth-of-type(1) {
+#mainForm .input-row > div[style*='flex'] {
   margin-bottom: 6px;
+}
+
+#predictGPAForm .input-row > div:nth-of-type(1) {
+    margin-bottom: 6px;
 }
 
 #predictGPAForm .input-row > div:nth-of-type(2) {
@@ -288,4 +290,131 @@ label {
 
 #predictGPAForm .input-row label[for^='predictTinchi'] {
     margin-bottom: 8px;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+
+  .input-row {
+    margin-bottom: 15px;
+  }
+
+  .input-field {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  label {
+    font-size: 14px;
+    margin-bottom: 12px;
+    margin-top: 10px;
+  }
+
+  .tooltip .tooltip-text {
+    width: 200px;
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .tooltip .tooltip-icon {
+    font-size: 16px;
+  }
+
+  #result, #predictGPAResult {
+    font-size: 20px;
+    margin-top: 25px;
+  }
+
+  .predict-table {
+    margin: 12px 0;
+    padding: 8px;
+  }
+
+  .predict-table-title {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  .button-row {
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .button-row button {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  /* Adjust spacing for GPA form on mobile */
+  #gpaForm .input-row label {
+    margin-bottom: 4px;
+    margin-top: 10px;
+  }
+
+  /* Adjust spacing for predict GPA form on mobile */
+  #predictGPAForm .input-row label {
+    margin-bottom: 4px;
+    margin-top: 10px;
+  }
+
+  /* Adjust tooltip position for better mobile view */
+  .tooltip .tooltip-text {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    top: -10px;
+  }
+
+  .tooltip .tooltip-text::after {
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-color: #333 transparent transparent transparent;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .input-field {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  label {
+    font-size: 13px;
+  }
+
+  .tooltip .tooltip-text {
+    width: 180px;
+  }
+
+  #result, #predictGPAResult {
+    font-size: 18px;
+  }
+
+  .button-row {
+    flex-direction: column;
+  }
+
+  .button-row button {
+    width: 100%;
+  }
 }
