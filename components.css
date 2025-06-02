@@ -246,7 +246,7 @@ label {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   h1 {
     font-size: 24px;
     margin-bottom: 15px;
@@ -344,7 +344,7 @@ label {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 320px) {
   h1 {
     font-size: 22px;
   }
@@ -375,7 +375,7 @@ label {
   }
 
   .button-row button {
-    width: 50%; 
+    width: 100%; 
     max-width: none; 
   }
 }
